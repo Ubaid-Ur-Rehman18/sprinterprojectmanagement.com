@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Sprinter PMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 80px; /* for footer space */
+    }
+    body::before {
+      content: "";
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+
+    header {
+      background-color: #000;
+      position: sticky; top: 0; z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .header-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 130px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #ffcc00;
+      color: #004aad;
+    }
+
+    .content-container {
+      max-width: 500px;
+      margin: 7rem auto 4rem auto;
+      background-color: rgba(0,0,0,0.6);
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    }
+    .content-container h1 {
+      font-size: 2.5rem;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, textarea {
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid #ffcc00;
+      background-color: #222;
+      color: white;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      max-height: 200px;
+    }
+    button {
+      background-color: #ffcc00;
+      color: #004aad;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e6b800;
+    }
+    #formStatus {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    /* .contact-details {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #ffcc00;
+    }
+    .contact-details a {
+      color: #ffcc00;
+      text-decoration: underline;
+    } */
+    .contact-details {
+  background-image: url('your-background.jpg'); /* Replace with your actual image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 80px 20px;
+  color: white;
+}
+
+.contact-details-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contact-details-overlay h4 {
+  color: orange;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.contact-details-overlay h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.contact-description {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-cards .card {
+  background-color: #111;
+  color: #fff;
+  width: 280px;
+  padding: 30px 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.contact-cards .card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.contact-cards .card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-cards .card p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.contact-cards .card:hover {
+  transform: translateY(-5px);
+  background-color: orange;
+  color: black;
+}
+
+.contact-cards .card:hover p,
+.contact-cards .card:hover h3 {
+  color: black;
+}
+
+
+
+    footer {
+      background-color: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #000;
+        width: 100%;
+      }
+      nav.active {
+        display: flex;
+      }
+      nav a {
+        padding: 1rem 2rem;
+        border-top: 1px solid #333;
+      }
+      /* .content-container {
+        margin: 5rem 1rem 6rem 1rem;
+        padding: 2rem 1rem;
+      }
+      .content-container h1 {
+        font-size: 2rem;
+      } */
+
+      
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrapper">
+    <a href="#">
+      <img src="images/logo.png.png" alt="Sprinter Logo" class="logo">
+    </a>
+    <div class="menu-icon" onclick="toggleMenu()">&#8942;</div>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="contact-details">
+  <div class="contact-details-overlay">
+    <h4>REACHING OUR OFFICE</h4>
+    <h2>OUR CONTACT DETAILS</h2>
+    <p class="contact-description">
+      To learn how Sprinter Project Management Services can support your construction and property projects with reliable solutions in the UAE, feel free to get in touch with us today.
+    </p>
+
+    <div class="contact-cards">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Office Icon" />
+        <h3>VISIT OUR OFFICE</h3>
+        <p>Warba Center, Al Murraqqabat Office 643, Deira, Dubai</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon" />
+        <h3>EMAIL US</h3>
+        <p>sprinter.e.e@hotmail.com</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call Icon" />
+        <h3>CALL US</h3>
+        <p>+971 56 680 2477</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<div class="content-container">
+  <h1>Contact Us</h1>
+  <form id="contactForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Your email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+    <p id="formStatus"></p>
+  </form>
+  </div>
+
+  
+
+<footer>
+  <p>&copy; 2025 Sprinter PMS. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navbar').classList.toggle('active');
+  }
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    status.textContent = "⏳ Sending...";
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/submit-form/", {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+      if (result.success) {
+        status.textContent = "✅ Your message has been sent!";
+        form.reset();
+      } else {
+        status.textContent = "❌ Failed to send. Try again!";
+      }
+    } catch (err) {
+      status.textContent = "⚠️ Server Error. Make sure FastAPI is running.";
+    }
+  });
+</script>
+
+</body>
+</html>

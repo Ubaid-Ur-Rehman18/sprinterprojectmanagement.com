@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services | Sprinter PMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+    header {
+      background-color: #000;
+      position: sticky; top: 0; z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .header-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 130px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #ffcc00;
+      color: #004aad;
+    }
+    .content-container {
+      max-width: 900px;
+      margin: 7rem auto 4rem auto;
+      background-color: rgba(0,0,0,0.6);
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    }
+    .content-container h1 {
+      font-size: 2.5rem;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+    .services-list {
+      list-style: none;
+      margin-top: 2rem;
+      padding-left: 0;
+    }
+    .services-list li {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .services-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #ffcc00;
+    }
+    footer {
+      background-color: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+      }
+      nav.active {
+        display: flex;
+      }
+      nav a {
+        padding: 1rem 2rem;
+        border-top: 1px solid #333;
+      }
+      .content-container {
+        padding: 2rem;
+        margin: 5rem 1rem;
+      }
+      .content-container h1 {
+        font-size: 2rem;
+      }
+      .services-list li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrapper">
+    <a href="#">
+      <img src="images/logo.png.png" alt="Sprinter Logo" class="logo">
+    </a>
+    <div class="menu-icon" onclick="toggleMenu()">&#8942;</div>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="content-container">
+  <h1>Our Services</h1>
+  <ul class="services-list">
+    <li>🧊 Cold Storage Room Solutions
+      Design, manufacturing, and installation of high-performance cold storage rooms for food, pharma, and industrial use, ensuring optimal temperature control and energy efficiency.</li>
+    <li>🛒 Market Cabinets
+      Supply and installation of advanced refrigeration display cabinets for supermarkets and retail outlets — combining performance, hygiene, and modern design.</li>
+    <li>🖨️ Rotogravure Printing Machine (5–10 Colors)
+      Installation, repair, and maintenance of high-speed electronic shaft Rotogravure printing machines for flexible packaging and labeling industries.</li>
+    <li>🛗 Elevator Systems
+      Expert elevator installation, modernization, and 24/7 maintenance services for residential, commercial, and industrial buildings — with safety compliance and sleek control systems.</li>
+    <li>💧 Industrial Water Purification Plants
+      End-to-end solutions for water filtration, softening, and purification systems for factories, commercial kitchens, and industrial facilities.</li>
+    <li>🛠️ Repair & Maintenance
+      Comprehensive after-sales support with rapid response for breakdowns, preventive maintenance schedules, and equipment upgrades across all categories.</li>
+    
+  </ul>
+</div>
+
+<footer>
+  <p>&copy; 2025 Sprinter PMS. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('active');
+  }
+</script>
+
+
+</body>
+</html>
